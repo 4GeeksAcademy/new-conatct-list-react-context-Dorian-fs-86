@@ -1,3 +1,5 @@
+import AddContact from "../views/add-contact";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -12,7 +14,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			contactList: [],
+			AddContact: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,6 +41,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			getContactList: async() => {
+				// me quiero traer la lista de internet
+				const response = await fetch('https://playground.4geeks.com/contact/agendas/dorian/contacts', {method: 'GET'})
+				
+				const data = await response.json()
+				console.log(data)
+				const store = getStore()
+				setStore({...store, contactList: data.contacts})
+				// return data.contacts
+			},
+			getAddContact: () => {
+				
+	
+
+
 			}
 		}
 	};

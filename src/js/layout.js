@@ -9,7 +9,11 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+// muestra lista de contactos
+// componente con renderizados de lista, la lista viene de una API
 
+// cada conatcto se puede editar o borrar
+// pantalla que nos permite agregar un contacto
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
